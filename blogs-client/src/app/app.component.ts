@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Http} from '@angular/http';
 import {Subscription} from 'rxjs/Subscription';
 import {Tag} from './tag.model';
 
@@ -23,17 +22,13 @@ export class AppComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
-    this.onSubscribe = this.http.get('http://localhost:8080/api/tags/list').subscribe(
-      data => this.tagContent = data.json(),
-      error => console.error(error)
-    );
+    // this.onSubscribe = this.http.get('http://localhost:8080/api/tags/list').subscribe(
+    //   data => this.tagContent = data.json(),
+    //   error => console.error(error)
+    // );
   }
 
   ngOnDestroy(): void {
-    this.onSubscribe.unsubscribe();
-  }
-
-  constructor(private http: Http) {
-
+    // this.onSubscribe.unsubscribe();
   }
 }
