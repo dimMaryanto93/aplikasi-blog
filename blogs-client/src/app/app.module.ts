@@ -11,6 +11,12 @@ import {TagsComponent} from './content/tags/tags.component';
 import {TagService} from './content/tags/tag.service';
 import {TopicsComponent} from './content/topics/topics.component';
 import {TopicService} from './content/topics/topic.service';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: 'tags', component: TagsComponent},
+  {path: 'topics', component: TopicsComponent}
+];
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import {TopicService} from './content/topics/topic.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TagService, TopicService],
   bootstrap: [AppComponent]
