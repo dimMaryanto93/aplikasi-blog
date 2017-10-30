@@ -22,10 +22,18 @@
   <div class="col-md-8">
     <h3>Daftar Tag</h3>
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let t of tags; let idx = index">
+      <li class="list-group-item"
+          *ngFor="let t of tagContent?.content; let idx = index">
         {{t.nama}}
-        <button class="btn btn-danger badge" (click)="onRemove(idx)">X</button>
+        <button class="btn btn-danger badge" (click)="onRemove(t)">x</button>
       </li>
+    </ul>
+    <ul class="pagination">
+      <button [disabled]="tagContent?.first" class="btn" (click)="gotoPage(0)">Pertama</button>
+      <li *ngFor="let p of pages">
+        <button class="btn" (click)="gotoPage(p - 1)" [disabled]="tagContent?.number == (p - 1)">{{p}}</button>
+      </li>
+      <button [disabled]="tagContent?.last" class="btn" (click)="gotoPage(tagContent?.totalPages - 1)">Terakhir</button>
     </ul>
   </div>
 </div>
