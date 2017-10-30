@@ -8,6 +8,9 @@ import {HeaderComponent} from './header/header.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {ContentComponent} from './content/content.component';
 import {TagsComponent} from './content/tags/tags.component';
+import {TagService} from './content/tags/tag.service';
+import {TopicsComponent} from './content/topics/topics.component';
+import {TopicService} from './content/topics/topic.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,15 @@ import {TagsComponent} from './content/tags/tags.component';
     HeaderComponent,
     SidebarComponent,
     ContentComponent,
-    TagsComponent
+    TagsComponent,
+    TopicsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TagService, TopicService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

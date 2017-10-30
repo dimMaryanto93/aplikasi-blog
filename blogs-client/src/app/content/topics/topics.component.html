@@ -1,0 +1,54 @@
+<h3>Halaman Topic</h3>
+
+<div>
+  <form (ngSubmit)="onSubmit(topicForm)" #topicForm="ngForm">
+    <div class="form-group">
+      <label for="judul" class="input-label">Judul</label>
+      <input type="text" name="title" id="judul" class="form-control" [(ngModel)]="topic.title">
+    </div>
+    <div class="form-group">
+      <label for="tags" class="input-label">Daftar Tag</label>
+      <select class="form-control" name="tags" id="tags" multiple="multiple" [(ngModel)]="topic.tags">
+        <option *ngFor="let t of tags" [value]="t">{{t.nama}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="imgUrl" class="input-label">Image URL</label>
+      <input type="text" name="imgUrl" id="imgUrl" class="form-control" [(ngModel)]="topic.imgUrl">
+      <div *ngIf="topic.imgUrl?.trim().length >= 1" class="row">
+        <img [src]="topic.imgUrl" alt="img" class="img-rounded img-responsive img-thumbnail">
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Kirim</button>
+    </div>
+  </form>
+</div>
+
+<div>
+  <table class="table table-striped table-responsive table-hover">
+    <thead>
+    <tr>
+      <td class="text-center">No</td>
+      <td>Judul</td>
+      <td class="text-center">Tags</td>
+      <td class="text-center">Aksi</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of topics; let idx = index">
+      <td>{{idx + 1}}</td>
+      <td>{{t.title}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let tg of t?.tags">{{tg.nama}}</li>
+        </ul>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

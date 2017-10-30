@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {Tag} from "./tag";
+import {TagService} from "./tag.service";
 
 @Component({
   selector: 'app-tags',
@@ -7,19 +9,23 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
+  tag: Tag = new Tag;
+  tags: Tag[] = [];
 
-  namaAnda: string;
-  id: number;
-
-  constructor() {
+  constructor(private tagService: TagService) {
+    this.tags = tagService.tags;
   }
 
   ngOnInit() {
   }
 
+  onRemove(i: number) {
+    this.tags.splice(i, 1);
+  }
+
   onSubmit(formTag: NgForm) {
-    // kirim suatu nilai
-    console.log(formTag.value);
+    this.tags.push(formTag.value);
+    formTag.reset();
   }
 
 }
