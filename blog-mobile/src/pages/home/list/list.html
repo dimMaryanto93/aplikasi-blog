@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      List Tags
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let t of daftarTag" (click)="showDetailPage(t)">
+      {{t.nama}}
+    </button>
+  </ion-list>
+</ion-content>

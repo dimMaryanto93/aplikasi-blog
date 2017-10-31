@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Aplikasi Blog
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #formTag="ngForm" (ngSubmit)="showMeTheCode(formTag)">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Kode</ion-label>
+        <ion-input type="text" value="" name="id" [(ngModel)]="tag.id"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Nama Tag</ion-label>
+        <ion-input type="text" name="nama" [(ngModel)]="tag.nama"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button type="submit" block>Kirim</button>
+      </ion-item>
+    </ion-list>
+  </form>
+  <button ion-button full (click)="showOtherPage()">List Page</button>
+
+</ion-content>
